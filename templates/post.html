@@ -1,0 +1,12 @@
+<div class="post">
+	<div class="subject">
+		<a href="/{{post.key().id()}}" class='link'>{{post.subject}}</a>
+    </div>
+	<hr>
+	<div class="content">
+		{{post._render_text | safe}}
+	</div>
+    <div class="time">
+      {{post.created.strftime("%b %d, %Y")}}
+    </div>
+</div>

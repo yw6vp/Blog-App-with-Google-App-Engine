@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="account">
+		{% if not username %}
+			<a href={{'/signup'}} class='link'><em>Signup</em></a>
+			<a href={{'/login'}} class='link'><em>Login</em></a>
+		{% else %}
+			<span><em>Hello, {{username}}!</em></span>
+			<a href={{'/logout'}} class='link'><em>Logout</em></a>
+		{% endif %}
+	</div>
+	<hr>
+	<div class="whitespace">
+		<a href={{'/newpost'}} class="new-post"><em>Creat New Blog</em></a>
+	</div>
+	{% for post in posts %}
+	{{post.render() | safe}}
+	<br><br>
+	{% endfor %}
+	<div class="time_passed">
+		Queried {{"%.2f" % time_passed}} seconds ago
+	</div>
+{% endblock %}
